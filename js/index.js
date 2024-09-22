@@ -1,13 +1,11 @@
 //getting all the value
 
-const income = parseFloat(document.getElementById('income').value);
-const software = parseFloat(document.getElementById('software').value);
-const courses = parseFloat(document.getElementById('courses').value);
-const internet = parseFloat(document.getElementById('internet').value);
+
 
 // add event listener for calculate button
 const calculateButton = document.getElementById ("calculate");
 calculateButton.addEventListener ("click", function () {
+
     const income = parseFloat(document.getElementById('income').value);
     const software = parseFloat(document.getElementById('software').value);
     const courses = parseFloat(document.getElementById('courses').value);
@@ -34,7 +32,25 @@ calculateButton.addEventListener ("click", function () {
 const calculateSavingButton = document.getElementById('calculate-savings');
 calculateSavingButton.addEventListener('click', function () {
     // console.log("test");
+    const income = parseFloat(document.getElementById('income').value);
+    const software = parseFloat(document.getElementById('software').value);
+    const courses = parseFloat(document.getElementById('courses').value);
+    const internet = parseFloat(document.getElementById('internet').value);
     const savingPercentace = parseFloat(document.getElementById('savings').value);
-    console.log(savingPercentace);
+    
+
+    const totalExpenses = software + courses + internet;
+    const balance = income - totalExpenses;
+
+    const savingAmount = ( savingPercentace * balance) /100;
+    
+    const savingElement = document.getElementById('savings-amount');
+    savingElement.innerText = savingAmount.toFixed(2);
+
+    const remainingBalance = balance - savingAmount
+
+    const remainingElement = document.getElementById('remaining-balance');
+    remainingElement.innerText = remainingBalance.toFixed(2);
+
 
 })
