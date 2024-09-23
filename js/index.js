@@ -1,19 +1,32 @@
-//getting all the value
-
+// get value
+function getInputValueById(id){
+    return parseFloat(document.getElementById(id).value)
+}
+// function show error
+function showError(id){
+    document.getElementById(id).classList.remove('hidden')
+}
 
 
 // add event listener for calculate button
 const calculateButton = document.getElementById ("calculate");
 calculateButton.addEventListener ("click", function () {
 
-    const income = parseFloat(document.getElementById('income').value);
-    const software = parseFloat(document.getElementById('software').value);
-    const courses = parseFloat(document.getElementById('courses').value);
-    const internet = parseFloat(document.getElementById('internet').value);
+    // const income = parseFloat(document.getElementById('income').value);
+    // const software = parseFloat(document.getElementById('software').value);
+    // const courses = parseFloat(document.getElementById('courses').value);
+    // const internet = parseFloat(document.getElementById('internet').value);
+    const income = getInputValueById('income');
+    const software = getInputValueById('software');
+    const courses = getInputValueById('courses');
+    const internet = getInputValueById('internet');
+    console.log(income)
+    
     // console.log({income , software, courses,internet});
     // console.table({income , software, courses,internet});
     if( income <= 0 || isNaN(income)){
-        document.getElementById('income-error').classList.remove('hidden');
+        // document.getElementById('income-error').classList.remove('hidden');
+        showError('income-error');
         return;
     }
 
@@ -35,7 +48,8 @@ calculateButton.addEventListener ("click", function () {
     const balance = income - totalExpenses;
 
     if( totalExpenses > income){
-        document.getElementById('logic-error').classList.remove('hidden');
+        // document.getElementById('logic-error').classList.remove('hidden');
+        showError('logic-error');
         return;
     }
     // console.table({ balance, totalExpenses})
