@@ -12,10 +12,32 @@ calculateButton.addEventListener ("click", function () {
     const internet = parseFloat(document.getElementById('internet').value);
     // console.log({income , software, courses,internet});
     // console.table({income , software, courses,internet});
+    if( income <= 0 || isNaN(income)){
+        document.getElementById('income-error').classList.remove('hidden');
+        return;
+    }
 
+    if( software <= 0 || isNaN(software)){
+        document.getElementById('software-error').classList.remove('hidden');
+        return;
+    }
+
+    if( courses <= 0 || isNaN(courses)){
+        document.getElementById('courses-error').classList.remove('hidden');
+        return;
+    }
+
+    if( internet <= 0 || isNaN(internet)){
+        document.getElementById('internet-error').classList.remove('hidden');
+        return;
+    }
     const totalExpenses = software + courses + internet;
     const balance = income - totalExpenses;
 
+    if( totalExpenses > income){
+        document.getElementById('logic-error').classList.remove('hidden');
+        return;
+    }
     // console.table({ balance, totalExpenses})
 
     const totalExpensesElement = document.getElementById('total-expenses');
