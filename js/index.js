@@ -136,3 +136,41 @@ assistantTab.addEventListener('click',function(){
     document.getElementById('expense-form').classList.remove('hidden');
     document.getElementById('history-section').classList.add('hidden');
 })
+
+// Live Validation for input
+
+document.getElementById('income').addEventListener("input",function(){
+    const inputValue = parseFloat(document.getElementById('income').value);
+
+    if(isNaN(inputValue) || inputValue <= 0){
+        document.getElementById('income-error').classList.remove('hidden');
+        return;
+    }
+})
+
+document.getElementById('software').addEventListener("input",function(){
+const inputSoftware = parseFloat(document.getElementById('software').value);
+
+if(isNaN(inputSoftware) || inputSoftware <= 0){
+    document.getElementById('software-error').classList.remove('hidden');
+    return;
+}
+})
+
+document.getElementById('courses').addEventListener("input",function(){
+const inputCourses = parseFloat(document.getElementById('courses').value);
+
+if(isNaN(inputCourses) || inputCourses <= 0){
+    document.getElementById('courses-error').classList.remove('hidden');
+    return;
+}
+})
+
+document.getElementById('internet').addEventListener("input",function(){
+const inputInternet = parseFloat(document.getElementById('internet').value);
+
+if(isNaN(inputInternet) || inputInternet <= 0){
+    document.getElementById('internet-error').classList.remove('hidden');
+    return;
+}
+})
